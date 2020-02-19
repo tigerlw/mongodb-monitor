@@ -1,0 +1,362 @@
+generate_action_types.py action_types.txt action_type.h action_type.cpp
+
+
+  db.adminCommand({getParameter: 1, wiredTigerEngineRuntimeConfig: 1})
+  
+  
+  db.adminCommand({getParameter: '*'}).wiredTigerEngineRuntimeConfig
+  
+  mkdir gcc-build-5.4.0
+  
+  
+  ../gcc-5.4.0/configure --prefix=/usr/local/gcc-build-5.4.0-bin/ --enable-checking=release --enable-languages=c,c++ --disable-multilib
+  
+  
+  /usr/local/gcc-5.4.0/gcc
+  
+  export C_INCLUDE_PATH=/usr/local/gcc-5.4.0/include
+  
+  
+  ../../../../gcc-5.4.0/libsanitizer/sanitizer_common/sanitizer_stoptheworld_linux_libcdep.cc: In function ‘int __sanitizer::TracerThread(void*)’:
+../../../../gcc-5.4.0/libsanitizer/sanitizer_common/sanitizer_stoptheworld_linux_libcdep.cc:237:22: error: aggregate ‘sigaltstack handler_stack’ has incomplete type and cannot be defined
+
+
+
+ln -s /usr/local/bin/gcc /bin/gcc
+
+ln -s /usr/local/bin/gcc /bin/g++
+
+
+ln -s /usr/local/gcc-build-5.4.0-bin/bin/gcc /usr/bin/gcc
+
+ln -s /usr/local/gcc-build-5.4.0-bin/bin/g++ /usr/bin/g++
+
+
+ln -s /usr/local/gcc-build-5.4.0-bin/lib64/libstdc++.so.6  /lib64/libstdc++.so.6 
+
+/lib64/libstdc++.so.6 -> libstdc++.so.6.0.19
+
+
+pip install locustio --ignore-installed requests
+
+
+Multiple errors reported.
+
+1) Failed to execute MI command:
+-var-create - * cfg
+Error message from debugger back end:
+Cannot instantiate printer for default visualizer
+
+2) Unable to create variable object
+
+3) Failed to execute MI command:
+-var-create - * cfg
+Error message from debugger back end:
+Cannot instantiate printer for default visualizer
+
+mongo.password=ocsuser@2016
+mongo.replicasetflow=10.7.3.45\:27017,10.7.3.46\:27017,10.7.19.24\:27017
+bssmongodb.dbName=bss
+mongo.maxWaitTimeflow=120000
+mongodb.dbName=ocs
+mongo.minConnectionsPerHostflow=10
+mongo.userflow=bssuser
+mongo.authenticationdb=ocs
+bssmongodb.replicaset=10.7.3.11\:27017,10.7.3.12\:27017,10.7.19.11\:27017
+mongo.user=ocsuser
+mongo.databaseflow=bss
+mongo.maxConnectionsPerHostflow=200
+bssmongo.user=bssuser
+mongo.replicaset=10.7.3.11\:27017,10.7.3.12\:27017,10.7.19.11\:27017
+mongo.passwordflow=bssuser@2016
+bssmongo.authenticationdb=bss
+mongo.authenticationdbflow=bss
+bssmongo.password=bssuser@2016
+
+
+mongo --host 10.7.3.45:27017/bss -ubss -pbssuser@2016 
+
+mongo 10.7.19.25:27019/bss  -uliuwei   -pcnKYZdmeMsTEZ9Md 
+
+
+mongo 10.7.3.45:27017/bss  -ubss   -pbssuser@2016 
+
+mongostat --host 10.7.3.45:27017 -ubssuser -pbssuser@2016  --authenticationDatabase bss
+
+
+mongostat --host 127.0.0.1:37018 -uadmin -padmin  --authenticationDatabase admin
+
+
+authorization: enabled
+
+
+rs.slaveOk();
+
+
+Mongo{options=MongoClientOptions{description='null', applicationName='null', readPreference=primary, writeConcern=WriteConcern{w=null, wTimeout=null ms, fsync=null, journal=null, readConcern=com.mongodb.ReadConcern@0, codecRegistry=org.bson.codecs.configuration.ProvidersCodecRegistry@98b34bee, commandListeners=[], clusterListeners=[], serverListeners=[], serverMonitorListeners=[], minConnectionsPerHost=0, maxConnectionsPerHost=100, threadsAllowedToBlockForConnectionMultiplier=5, serverSelectionTimeout=30000, maxWaitTime=120000, maxConnectionIdleTime=0, maxConnectionLifeTime=0, connectTimeout=10000, socketTimeout=0, socketKeepAlive=false, sslEnabled=false, sslInvalidHostNamesAllowed=false, alwaysUseMBeans=false, heartbeatFrequency=10000, minHeartbeatFrequency=500, heartbeatConnectTimeout=20000, heartbeatSocketTimeout=20000, localThreshold=15, requiredReplicaSetName='null', dbDecoderFactory=com.mongodb.DefaultDBDecoder$1@2831c178, dbEncoderFactory=com.mongodb.DefaultDBEncoder$1@70e8c019, socketFactory=null, cursorFinalizerEnabled=true, connectionPoolSettings=ConnectionPoolSettings{maxSize=100, minSize=0, maxWaitQueueSize=500, maxWaitTimeMS=120000, maxConnectionLifeTimeMS=0, maxConnectionIdleTimeMS=0, maintenanceInitialDelayMS=0, maintenanceFrequencyMS=60000}, socketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=0, keepAlive=false, receiveBufferSize=0, sendBufferSize=0}, serverSettings=ServerSettings{heartbeatFrequencyMS=10000, minHeartbeatFrequencyMS=500, serverListeners='[]', serverMonitorListeners='[]'}, heartbeatSocketSettings=SocketSettings{connectTimeoutMS=20000, readTimeoutMS=20000, keepAlive=false, receiveBufferSize=0, sendBufferSize=0}}}
+
+
+Mongo{options=MongoClientOptions{description='null', applicationName='null', readPreference=primary, writeConcern=WriteConcern{w=null, wTimeout=null ms, fsync=null, journal=null, readConcern=com.mongodb.ReadConcern@0, codecRegistry=org.bson.codecs.configuration.ProvidersCodecRegistry@42ec157e, commandListeners=[], clusterListeners=[], serverListeners=[], serverMonitorListeners=[], minConnectionsPerHost=0, maxConnectionsPerHost=100, threadsAllowedToBlockForConnectionMultiplier=5, serverSelectionTimeout=30000, maxWaitTime=120000, maxConnectionIdleTime=0, maxConnectionLifeTime=0, connectTimeout=10000, socketTimeout=0, socketKeepAlive=false, sslEnabled=false, sslInvalidHostNamesAllowed=false, alwaysUseMBeans=false, heartbeatFrequency=10000, minHeartbeatFrequency=500, heartbeatConnectTimeout=20000, heartbeatSocketTimeout=20000, localThreshold=15, requiredReplicaSetName='null', dbDecoderFactory=com.mongodb.DefaultDBDecoder$1@161c9468, dbEncoderFactory=com.mongodb.DefaultDBEncoder$1@629de8, socketFactory=null, cursorFinalizerEnabled=true, connectionPoolSettings=ConnectionPoolSettings{maxSize=100, minSize=0, maxWaitQueueSize=500, maxWaitTimeMS=120000, maxConnectionLifeTimeMS=0, maxConnectionIdleTimeMS=0, maintenanceInitialDelayMS=0, maintenanceFrequencyMS=60000}, socketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=0, keepAlive=false, receiveBufferSize=0, sendBufferSize=0}, serverSettings=ServerSettings{heartbeatFrequencyMS=10000, minHeartbeatFrequencyMS=500, serverListeners='[]', serverMonitorListeners='[]'}, heartbeatSocketSettings=SocketSettings{connectTimeoutMS=20000, readTimeoutMS=20000, keepAlive=false, receiveBufferSize=0, sendBufferSize=0}}}
+
+MongoClientOptions{description='null', applicationName='null', readPreference=primary, writeConcern=WriteConcern{w=null, wTimeout=null ms, fsync=null, journal=null, readConcern=com.mongodb.ReadConcern@0, codecRegistry=org.bson.codecs.configuration.ProvidersCodecRegistry@282f54a9, commandListeners=[], clusterListeners=[], serverListeners=[], serverMonitorListeners=[], minConnectionsPerHost=0, maxConnectionsPerHost=100, threadsAllowedToBlockForConnectionMultiplier=5, serverSelectionTimeout=30000, maxWaitTime=120000, maxConnectionIdleTime=0, maxConnectionLifeTime=0, connectTimeout=10000, socketTimeout=0, socketKeepAlive=true, sslEnabled=false, sslInvalidHostNamesAllowed=false, alwaysUseMBeans=false, heartbeatFrequency=10000, minHeartbeatFrequency=500, heartbeatConnectTimeout=20000, heartbeatSocketTimeout=20000, localThreshold=15, requiredReplicaSetName='null', dbDecoderFactory=com.mongodb.DefaultDBDecoder$1@38347345, dbEncoderFactory=com.mongodb.DefaultDBEncoder$1@4b9b5da5, socketFactory=null, cursorFinalizerEnabled=true, connectionPoolSettings=ConnectionPoolSettings{maxSize=100, minSize=0, maxWaitQueueSize=500, maxWaitTimeMS=120000, maxConnectionLifeTimeMS=0, maxConnectionIdleTimeMS=0, maintenanceInitialDelayMS=0, maintenanceFrequencyMS=60000}, socketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=0, keepAlive=true, receiveBufferSize=0, sendBufferSize=0}, serverSettings=ServerSettings{heartbeatFrequencyMS=10000, minHeartbeatFrequencyMS=500, serverListeners='[]', serverMonitorListeners='[]'}, heartbeatSocketSettings=SocketSettings{connectTimeoutMS=20000, readTimeoutMS=20000, keepAlive=true, receiveBufferSize=0, sendBufferSize=0}}
+
+
+
+options = MongoClientOptions.builder().build();
+
+
+use admin;
+rs.initiate(
+  {
+    _id: "svr01",
+    configsvr: true,
+    members: [
+      { _id: 0, host: "172.31.13.163:47017" },
+      { _id: 1, host: "172.31.9.213:47018" }
+    ]
+  }
+);
+
+rs.initiate( {
+   _id : "rs0",
+   members: [
+      { _id: 0, host: "172.31.13.163:37017" },
+      { _id: 1, host: "172.31.9.213:37018" }
+   ]
+})
+
+aws ec2 request-spot-instances --profile default --instance-count 1 --launch-specification file://config.json_mongodb_cluster_1  --spot-price 0.03 --type "one-time" 
+
+
+sh.addShard("rs0/172.31.13.163:37017,172.31.9.213:37018")
+
+
+/usr/local/mongodb/bin/mongod -f /usr/local/mongodb/confsvr-1.config
+/usr/local/mongodb/bin/mongod -f /usr/local/mongodb/rs0-1.config
+/usr/local/mongodb/bin/mongos -f /usr/local/mongodb/router-1.config 
+
+
+/usr/local/mongodb/bin/mongod -f /usr/local/mongodb/confsvr-2.config
+/usr/local/mongodb/bin/mongod -f /usr/local/mongodb/rs0-2.config
+/usr/local/mongodb/bin/mongos -f /usr/local/mongodb/router-2.config 
+
+
+ps aux | grep mongo |  awk '{print $2}' | xargs kill
+
+ps -ef | grep mongo | grep -v grep | awk '{print $2}' | xargs kill
+
+
+# MALL LOGROTATE
+/usr/local/mongodb/rs/rs0/node1/logs/mongo.log {
+    notifempty 
+    copytruncate
+    rotate 100
+    missingok
+    nocompress
+    dateext
+    dateformat .%Y%m%d-%H-%s
+}
+
+
+/usr/sbin/logrotate -vf /etc/logrotate.d/mongod
+
+
+# MALL LOGROTATE
+/usr/local/mongodb/mongostat.log {
+    notifempty 
+    copytruncate
+    rotate 100
+    missingok
+    nocompress
+    dateext
+	olddir  /usr/local/mongodb/logs/
+	dateformat -%Y%m%d-%H-%s
+}
+
+
+/usr/sbin/logrotate -vf /etc/logrotate.d/mongostat;
+cp -f /usr/local/mongodb/logs/mongostat.log-* /usr/local/mongodb/logs/bak/
+mv /usr/local/mongodb/logs/mongostat.log-*  /usr/local/mongodb/logs/mongostat.log;
+
+
+/etc/logrotate.d/iostat
+
+# MALL LOGROTATE
+/usr/local/mongodb/iostat.log {
+    notifempty 
+    copytruncate
+    rotate 100
+    missingok
+    nocompress
+    dateext
+	olddir  /usr/local/mongodb/logs/
+	dateformat -%Y%m%d-%H-%s
+}
+
+
+bin/mongostat --host 127.0.0.1:37017 -uadmin -padmin --authenticationDatabase admin
+
+nohup bin/mongostat --host 127.0.0.1:37017 -uadmin -padmin --authenticationDatabase admin > mongostat.log  2>&1 &
+
+nohup monitor -H database-1.cjm3gn7kzeus.ap-southeast-1.rds.amazonaws.com -p 3306 -u root --pwd liuwei123 --db ocs_test --path /usr/local/mongodb/logs/mongostat.log -c "/usr/local/logrotate.sh" -s 5 > mongo-monitor.log  2>&1 &
+
+bin/mongo 127.0.0.1:37017/admin -uadmin -padmin
+
+
+bin/mongostat --host 127.0.0.1:28011-uadmin -padmin --authenticationDatabase admin
+
+mlogvis mongo.log
+
+db.adminCommand({setParameter: 1, wiredTigerEngineRuntimeConfig: "checkpoint=(log_size=4G,wait=120)"})
+db.runCommand({setParameter: 1, wiredTigerEngineRuntimeConfig: "eviction_dirty_target=10,eviction_target=80"})
+
+db.adminCommand( { "setParameter": 1, "wiredTigerEngineRuntimeConfig": "cache_size=10G"})
+
+db.setLogLevel(2, "storage" );
+
+checkpoint=(log_size=0,wait=0)
+
+httpclient4.time_to_live
+
+db.UserDomain.ensureIndex({"userName":1})
+
+
+monitor -c 5 com.dap.etl.platform.admin.inf.controller.CustController insertCustToMongo
+
+growpart /dev/nvme0n1 1 
+
+openssl rand -base64 756 > /usr/local/mongodb-linux-x86_64-amazon-3.0.15/KeyFile.file
+
+
+bin/mongod --configsvr --port 30000 --dbpath /data/data/configdb --fork --logpath /data/log/config.log --directoryperdb --keyFile /data/key/KeyFile.file
+
+bin/mongod --replSet rs1  --fork --port 28011 --dbpath /data/data/r1 --logpath=/data/log/r1.log --logappend --keyFile /data/key/KeyFile.file
+
+bin/mongod --replSet rs1  --fork --port 28011 --dbpath /data/data/r1 --logpath=/data/log/r1.log --logappend --keyFile /data/key/KeyFile.file
+
+bin/mongos --port 40000 --configdb 172.31.7.111:30000 --fork --logpath /data/log/route.log --keyFile /data/key/KeyFile.file
+
+
+db.runCommand(  
+    {  
+        "replSetInitiate":  
+        {  
+            "_id":"rs1",  
+            "members":  
+            [  
+                {  
+                    "_id":1,  
+                    "host":"172.31.4.213:28011"  
+                },
+				{  
+                    "_id":2,  
+                    "host":"172.31.4.186:28011"  
+                }
+            ]  
+        }  
+    })  
+	
+	
+	
+	db.runCommand({addshard:"rs1/172.31.4.213:28011,172.31.4.186:28011",allowLocal:true });
+	
+	
+	
+	db.createUser({
+        "user" : "ocs",
+        "pwd" : "123456", 
+            
+        "roles" : [
+               
+                {
+                        "role" : "dbAdmin",
+                        "db" : "ocs"
+                },
+                {
+                        "role" : "readWrite",
+                        "db" : "ocs"
+                }
+        ]
+}
+)
+
+
+bin/mongos --port 57017 --configdb 172.31.7.111:30000 --fork --logpath /data/log/route.log
+
+
+bin/mongod --replSet rs1 --fork --port 28011 --dbpath /data/data/r1 --logpath=/data/log/r1.log --logappend --keyFile /data/key/KeyFile.file
+bin/mongod --configsvr --port 30000 --dbpath /data/data/configdb --fork --logpath /data/log/config.log --directoryperdb --keyFile /data/key/KeyFile.file
+bin/mongos --port 57017 --configdb 172.31.4.213:30000 --fork --logpath /data/log/route.log --keyFile /data/key/KeyFile.file
+
+bin/mongod --replSet rs1 --fork --port 28011 --dbpath /data/data/r1 --logpath=/data/log/r1.log --logappend  --storageEngine wiredTiger
+bin/mongos --port 57017 --configdb 172.31.4.213:30000 --fork --logpath /data/log/route.log 
+
+
+CREATE TABLE `io_stat` (
+  `device` varchar(10) COLLATE utf8_bin DEFAULT NULL,
+  `rrqm_s` float DEFAULT NULL,
+  `wrqm_s` float DEFAULT NULL,
+  `r_s` float DEFAULT NULL,
+  `w_s` float DEFAULT NULL,
+  `rkB_s` float DEFAULT NULL,
+  `wkB_s` float DEFAULT NULL,
+  `avgrq_sz` float DEFAULT NULL,
+  `avgqu_sz` float DEFAULT NULL,
+  `await` float DEFAULT NULL,
+  `r_await` float DEFAULT NULL,
+  `w_await` float DEFAULT NULL,
+  `svctm` float DEFAULT NULL,
+  `util` float DEFAULT NULL,
+  `monitor_date` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+
+CREATE TABLE `mongo_stat` (
+  `insert_cnt` int(11) DEFAULT NULL,
+  `query_cnt` int(11) DEFAULT NULL,
+  `update_cnt` int(11) DEFAULT NULL,
+  `delete_cnt` int(11) DEFAULT NULL,
+  `dirty` float DEFAULT NULL,
+  `used` float DEFAULT NULL,
+  `monitor_date` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+
+CREATE TABLE `mongo_vis` (
+  `thread` varchar(300) COLLATE utf8_bin DEFAULT NULL,
+  `numYields` int(11) DEFAULT NULL,
+  `namespace` varchar(200) COLLATE utf8_bin DEFAULT NULL,
+  `monitor_time` datetime DEFAULT NULL,
+  `duration` int(11) DEFAULT NULL,
+  `operation` varchar(30) COLLATE utf8_bin DEFAULT NULL,
+  `id` int(11) DEFAULT NULL,
+  `line_str` varchar(2000) COLLATE utf8_bin DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+
+
+yum install mysql-devel
+
+pip install mysql-python
+
+python setup.py install
+
+export S_TIME_FORMAT='ISO'
+iostat -x -t 5
+
+nohup iostat -x -t 1 > iostat.log  2>&1 &
+
+nohup bin/mongostat --host 127.0.0.1:37017 -uadmin -padmin --authenticationDatabase admin > mongostat.log  2>&1 &
+
+/usr/sbin/logrotate -vf /etc/logrotate.d/iostat;
+cp -f /usr/local/mongodb/logs/iostat.log-* /usr/local/mongodb/logs/bak/
+mv /usr/local/mongodb/logs/iostat.log-*  /usr/local/mongodb/logs/iostat.log;
+
+
+nohup iomonitor -H database-1.cjm3gn7kzeus.ap-southeast-1.rds.amazonaws.com -p 3306 -u root --pwd liuwei123 --db ocs_test --path /usr/local/mongodb/logs/iostat.log -c "/usr/local/iorotate.sh" -s 5 > io-monitor.log  2>&1 &
+
+nohup monitor -H database-1.cjm3gn7kzeus.ap-southeast-1.rds.amazonaws.com -p 3306 -u root --pwd liuwei123 --db ocs_test --path /usr/local/mongodb/logs/mongostat.log -c "/usr/local/logrotate.sh" -s 5 > mongodb-monitor.log  2>&1 &
+
+
+nohup vismonitor -H database-1.cjm3gn7kzeus.ap-southeast-1.rds.amazonaws.com -p 3306 -u root --pwd liuwei123 --db ocs_test --path /usr/local/mongodb/logs/mongo.log -c "/usr/local/visrotate.sh" -s 20 > vis-monitor.log  2>&1 &
+
