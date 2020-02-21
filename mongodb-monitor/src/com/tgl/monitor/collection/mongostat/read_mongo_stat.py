@@ -64,9 +64,19 @@ def read_file(option):
 
 
         year = time.strftime('%Y', time.localtime(time.time()))
-        time_str = year + " " + nlist[18] + " " + nlist[19] + " " + nlist[20].strip()
+        month = time.strftime('%b', time.localtime(time.time()))
+        day = time.strftime('%d', time.localtime(time.time()))
 
         GMT_FORMAT = '%Y %b %d %H:%M:%S.%f'
+
+        if nlist.__len__() > 20 :
+            time_str = year + " " + nlist[18] + " " + nlist[19] + " " + nlist[20].strip()
+        else:
+            time_str = year + " " + month + " " + day + " " + nlist[18].strip()
+            GMT_FORMAT = '%Y %b %d %H:%M:%S'
+
+
+
         time_date = datetime.strptime(time_str, GMT_FORMAT)
 
         stat = mongo_stat(insert_cnt, query_cnt, update_cnt, delete_cnt,time_date,dirty,used)

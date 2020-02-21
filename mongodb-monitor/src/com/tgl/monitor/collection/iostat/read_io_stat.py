@@ -47,9 +47,22 @@ def read_file(option):
         if begin :
             strlist = line.split(" ")
             nlist = [x for x in strlist if '' != x ]
-            io_stat_item = io_stat(nlist[0], float(nlist[1]), float(nlist[2]), float(nlist[3]), float(nlist[4]),
-                              float(nlist[5]), float(nlist[6]), float(nlist[7]), float(nlist[8]), float(nlist[9]),
-                              float(nlist[10]), float(nlist[11]),float(nlist[12]),float(nlist[13].strip()),time_date)
+
+
+            if nlist.__len__() > 13:
+                io_stat_item = io_stat(nlist[0], float(nlist[1]), float(nlist[2]), float(nlist[3]), float(nlist[4]),
+                                       float(nlist[5]), float(nlist[6]), float(nlist[7]), float(nlist[8]),
+                                       float(nlist[9]),
+                                       float(nlist[10]), float(nlist[11]), float(nlist[12]), float(nlist[13].strip()),
+                                       time_date)
+            else:
+                io_stat_item = io_stat(nlist[0], float(nlist[1]), float(nlist[2]), float(nlist[3]), float(nlist[4]),
+                                       float(nlist[5]), float(nlist[6]), float(nlist[7]), float(nlist[8]),
+                                       float(nlist[9]),
+                                       float(nlist[10]), float(0), float(0), float(nlist[11].strip()),
+                                       time_date)
+
+
             io_list.append(io_stat_item)
             print nlist
 

@@ -162,8 +162,12 @@ def insert_stat(items,self):
     cursor = db.cursor()
 
     for item in items:
-        line_str = item["line_str"].replace("(","(\\")
-        line_str = line_str.replace("')","\\')")
+
+        if item.has_key("line_str"):
+            line_str = item["line_str"].replace("(", "(\\")
+            line_str = line_str.replace("')", "\\')")
+        else:
+            line_str = ""
 
         numYields = 0
         namespace = ""

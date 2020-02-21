@@ -193,7 +193,7 @@ class LogFileTool(BaseCmdLineTool):
         if self.is_stdin:
             if not self.stdin_allowed:
                 raise SystemExit("this tool can't parse input from stdin.")
-            #sys.stdin = open('D:/learning/mongodb/mongo.log')
+            #sys.stdin = open('D:/learning/mongodb/r1.log')
             arg_opts['const'] = LogFile(sys.stdin)
             arg_opts['action'] = 'store_const'
             if 'type' in arg_opts:

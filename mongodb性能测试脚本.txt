@@ -154,6 +154,7 @@ ps -ef | grep mongo | grep -v grep | awk '{print $2}' | xargs kill
     missingok
     nocompress
     dateext
+	olddir  /usr/local/mongodb/logs/
     dateformat .%Y%m%d-%H-%s
 }
 
@@ -292,6 +293,20 @@ bin/mongod --replSet rs1 --fork --port 28011 --dbpath /data/data/r1 --logpath=/d
 bin/mongos --port 57017 --configdb 172.31.4.213:30000 --fork --logpath /data/log/route.log 
 
 
+3.0 mongodb
+
+启动命令
+
+echo never > /sys/kernel/mm/transparent_hugepage/defrag
+
+source /etc/profile; numactl --interleave=all mongod --shardsvr --replSet shard0 --port 27019 --keyFile /uCloudlink/local/Paas/mongokey/mkey --auth  --dbpath /uCloudlink/local/Paas/shard0/data --logpath /uCloudlink/local/Paas/shard0/log/shard0.log --fork --oplogSize 72000 --storageEngine wiredTiger --wiredTigerCacheSizeGB 215  --slowms 200
+
+source /etc/profile; mongod --configsvr --dbpath /uCloudlink/local/Paas/config0/data --port 27018 --keyFile /uCloudlink/local/Paas/mongokey/mkey --auth --logpath /uCloudlink/local/Paas/config0/log/config.log --fork
+
+source /etc/profile; numactl --interleave=all mongos --configdb 10.7.3.11:27018,10.7.3.12:27018,10.7.19.11:27018 --keyFile /uCloudlink/local/Paas/mongokey/mkey --port 27017 --logpath /uCloudlink/local/Paas/mongos0/log/mongos.log --fork
+
+
+
 CREATE TABLE `io_stat` (
   `device` varchar(10) COLLATE utf8_bin DEFAULT NULL,
   `rrqm_s` float DEFAULT NULL,
@@ -333,6 +348,15 @@ CREATE TABLE `mongo_vis` (
   `line_str` varchar(2000) COLLATE utf8_bin DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
+select t.*, k.monitor_time,m.* from 
+mongo_stat t LEFT JOIN 
+(select DISTINCT t.monitor_time 
+from mongo_vis t where t.duration>0 and t.monitor_time>STR_TO_DATE('2020-02-20 06:45:00', '%Y-%m-%d %H:%i:%s') 
+and t.monitor_time<STR_TO_DATE('2020-02-20 07:30:00', '%Y-%m-%d %H:%i:%s') ) k on (t.monitor_date=k.monitor_time),io_stat m
+where t.monitor_date=m.monitor_date
+and t.monitor_date>STR_TO_DATE('2020-02-20 06:45:00', '%Y-%m-%d %H:%i:%s') 
+and t.monitor_date<STR_TO_DATE('2020-02-20 07:30:00', '%Y-%m-%d %H:%i:%s') ORDER BY t.monitor_date desc;
+
 
 
 yum install mysql-devel
@@ -358,5 +382,16 @@ nohup iomonitor -H database-1.cjm3gn7kzeus.ap-southeast-1.rds.amazonaws.com -p 3
 nohup monitor -H database-1.cjm3gn7kzeus.ap-southeast-1.rds.amazonaws.com -p 3306 -u root --pwd liuwei123 --db ocs_test --path /usr/local/mongodb/logs/mongostat.log -c "/usr/local/logrotate.sh" -s 5 > mongodb-monitor.log  2>&1 &
 
 
-nohup vismonitor -H database-1.cjm3gn7kzeus.ap-southeast-1.rds.amazonaws.com -p 3306 -u root --pwd liuwei123 --db ocs_test --path /usr/local/mongodb/logs/mongo.log -c "/usr/local/visrotate.sh" -s 20 > vis-monitor.log  2>&1 &
+nohup vismonitor -H database-1.cjm3gn7kzeus.ap-southeast-1.rds.amazonaws.com -p 3306 -u root --pwd liuwei123 --db ocs_test --path /usr/local/mongodb/logs/mongo.log -c "/usr/local/visrotate.sh" -s 120 > vis-monitor.log  2>&1 &
+
+nohup java -jar metabase.jar > metabase.log  2>&1 &
+
+nohup bin/jmeter -n -t MongoPerf.jmx  -l report.jtl -e -o report 2>&1 &
+
+ycsb
+
+https://github.com/johnlpage/POCDriver
+
+https://github.com/mongodb/mongo/wiki/JavaScript-Performance-Testing-Harness
+
 
